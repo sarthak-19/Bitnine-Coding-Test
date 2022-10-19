@@ -1,0 +1,3031 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <!-- Include the ECharts file you just downloaded -->
+  <script src="echarts.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.3/echarts.min.js"></script> -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div>
+    <h1>Los Angeles Subway Network</h1>
+  </div>
+  <div id="main"></div>
+
+  <script type="text/javascript">
+
+    var graph2 = {
+      "nodes": [
+        {
+          "id": "0",
+          "name": "Myriel",
+          "symbolSize": 19.12381,
+          "x": -266.82776,
+          "y": 299.6904,
+          "value": 28.685715,
+          "category": 0
+        },
+        {
+          "id": "1",
+          "name": "Napoleon",
+          "symbolSize": 2.6666666666666665,
+          "x": -418.08344,
+          "y": 446.8853,
+          "value": 4,
+          "category": 0
+        },
+        {
+          "id": "2",
+          "name": "MlleBaptistine",
+          "symbolSize": 6.323809333333333,
+          "x": -212.76357,
+          "y": 245.29176,
+          "value": 9.485714,
+          "category": 1
+        },
+        {
+          "id": "3",
+          "name": "MmeMagloire",
+          "symbolSize": 6.323809333333333,
+          "x": -242.82404,
+          "y": 235.26283,
+          "value": 9.485714,
+          "category": 1
+        },
+        {
+          "id": "4",
+          "name": "CountessDeLo",
+          "symbolSize": 2.6666666666666665,
+          "x": -379.30386,
+          "y": 429.06424,
+          "value": 4,
+          "category": 0
+        },
+        {
+          "id": "5",
+          "name": "Geborand",
+          "symbolSize": 2.6666666666666665,
+          "x": -417.26337,
+          "y": 406.03506,
+          "value": 4,
+          "category": 0
+        },
+        {
+          "id": "6",
+          "name": "Champtercier",
+          "symbolSize": 2.6666666666666665,
+          "x": -332.6012,
+          "y": 485.16974,
+          "value": 4,
+          "category": 0
+        },
+        {
+          "id": "7",
+          "name": "Cravatte",
+          "symbolSize": 2.6666666666666665,
+          "x": -382.69568,
+          "y": 475.09113,
+          "value": 4,
+          "category": 0
+        },
+        {
+          "id": "8",
+          "name": "Count",
+          "symbolSize": 2.6666666666666665,
+          "x": -320.384,
+          "y": 387.17325,
+          "value": 4,
+          "category": 0
+        },
+        {
+          "id": "9",
+          "name": "OldMan",
+          "symbolSize": 2.6666666666666665,
+          "x": -344.39832,
+          "y": 451.16772,
+          "value": 4,
+          "category": 0
+        },
+        {
+          "id": "10",
+          "name": "Labarre",
+          "symbolSize": 2.6666666666666665,
+          "x": -89.34107,
+          "y": 234.56128,
+          "value": 4,
+          "category": 1
+        },
+        {
+          "id": "11",
+          "name": "Valjean",
+          "symbolSize": 66.66666666666667,
+          "x": -87.93029,
+          "y": -6.8120565,
+          "value": 100,
+          "category": 1
+        },
+        {
+          "id": "12",
+          "name": "Marguerite",
+          "symbolSize": 4.495239333333333,
+          "x": -339.77908,
+          "y": -184.69139,
+          "value": 6.742859,
+          "category": 1
+        },
+        {
+          "id": "13",
+          "name": "MmeDeR",
+          "symbolSize": 2.6666666666666665,
+          "x": -194.31313,
+          "y": 178.55301,
+          "value": 4,
+          "category": 1
+        },
+        {
+          "id": "14",
+          "name": "Isabeau",
+          "symbolSize": 2.6666666666666665,
+          "x": -158.05168,
+          "y": 201.99768,
+          "value": 4,
+          "category": 1
+        },
+        {
+          "id": "15",
+          "name": "Gervais",
+          "symbolSize": 2.6666666666666665,
+          "x": -127.701546,
+          "y": 242.55057,
+          "value": 4,
+          "category": 1
+        },
+        {
+          "id": "16",
+          "name": "Tholomyes",
+          "symbolSize": 17.295237333333333,
+          "x": -385.2226,
+          "y": -393.5572,
+          "value": 25.942856,
+          "category": 2
+        },
+        {
+          "id": "17",
+          "name": "Listolier",
+          "symbolSize": 13.638097333333334,
+          "x": -516.55884,
+          "y": -393.98975,
+          "value": 20.457146,
+          "category": 2
+        },
+        {
+          "id": "18",
+          "name": "Fameuil",
+          "symbolSize": 13.638097333333334,
+          "x": -464.79382,
+          "y": -493.57944,
+          "value": 20.457146,
+          "category": 2
+        },
+        {
+          "id": "19",
+          "name": "Blacheville",
+          "symbolSize": 13.638097333333334,
+          "x": -515.1624,
+          "y": -456.9891,
+          "value": 20.457146,
+          "category": 2
+        },
+        {
+          "id": "20",
+          "name": "Favourite",
+          "symbolSize": 13.638097333333334,
+          "x": -408.12122,
+          "y": -464.5048,
+          "value": 20.457146,
+          "category": 2
+        },
+        {
+          "id": "21",
+          "name": "Dahlia",
+          "symbolSize": 13.638097333333334,
+          "x": -456.44113,
+          "y": -425.13303,
+          "value": 20.457146,
+          "category": 2
+        },
+        {
+          "id": "22",
+          "name": "Zephine",
+          "symbolSize": 13.638097333333334,
+          "x": -459.1107,
+          "y": -362.5133,
+          "value": 20.457146,
+          "category": 2
+        },
+        {
+          "id": "23",
+          "name": "Fantine",
+          "symbolSize": 28.266666666666666,
+          "x": -313.42786,
+          "y": -289.44803,
+          "value": 42.4,
+          "category": 2
+        },
+        {
+          "id": "24",
+          "name": "MmeThenardier",
+          "symbolSize": 20.95238266666667,
+          "x": 4.6313396,
+          "y": -273.8517,
+          "value": 31.428574,
+          "category": 7
+        },
+        {
+          "id": "25",
+          "name": "Thenardier",
+          "symbolSize": 30.095235333333335,
+          "x": 82.80825,
+          "y": -203.1144,
+          "value": 45.142853,
+          "category": 7
+        },
+        {
+          "id": "26",
+          "name": "Cosette",
+          "symbolSize": 20.95238266666667,
+          "x": 78.64646,
+          "y": -31.512747,
+          "value": 31.428574,
+          "category": 6
+        },
+        {
+          "id": "27",
+          "name": "Javert",
+          "symbolSize": 31.923806666666668,
+          "x": -81.46074,
+          "y": -204.20204,
+          "value": 47.88571,
+          "category": 7
+        },
+        {
+          "id": "28",
+          "name": "Fauchelevent",
+          "symbolSize": 8.152382000000001,
+          "x": -225.73984,
+          "y": 82.41631,
+          "value": 12.228573,
+          "category": 4
+        },
+        {
+          "id": "29",
+          "name": "Bamatabois",
+          "symbolSize": 15.466666666666667,
+          "x": -385.6842,
+          "y": -20.206686,
+          "value": 23.2,
+          "category": 3
+        },
+        {
+          "id": "30",
+          "name": "Perpetue",
+          "symbolSize": 4.495239333333333,
+          "x": -403.92447,
+          "y": -197.69823,
+          "value": 6.742859,
+          "category": 2
+        },
+        {
+          "id": "31",
+          "name": "Simplice",
+          "symbolSize": 8.152382000000001,
+          "x": -281.4253,
+          "y": -158.45137,
+          "value": 12.228573,
+          "category": 2
+        },
+        {
+          "id": "32",
+          "name": "Scaufflaire",
+          "symbolSize": 2.6666666666666665,
+          "x": -122.41348,
+          "y": 210.37503,
+          "value": 4,
+          "category": 1
+        },
+        {
+          "id": "33",
+          "name": "Woman1",
+          "symbolSize": 4.495239333333333,
+          "x": -234.6001,
+          "y": -113.15067,
+          "value": 6.742859,
+          "category": 1
+        },
+        {
+          "id": "34",
+          "name": "Judge",
+          "symbolSize": 11.809524666666666,
+          "x": -387.84915,
+          "y": 58.7059,
+          "value": 17.714287,
+          "category": 3
+        },
+        {
+          "id": "35",
+          "name": "Champmathieu",
+          "symbolSize": 11.809524666666666,
+          "x": -338.2307,
+          "y": 87.48405,
+          "value": 17.714287,
+          "category": 3
+        },
+        {
+          "id": "36",
+          "name": "Brevet",
+          "symbolSize": 11.809524666666666,
+          "x": -453.26874,
+          "y": 58.94648,
+          "value": 17.714287,
+          "category": 3
+        },
+        {
+          "id": "37",
+          "name": "Chenildieu",
+          "symbolSize": 11.809524666666666,
+          "x": -386.44904,
+          "y": 140.05937,
+          "value": 17.714287,
+          "category": 3
+        },
+        {
+          "id": "38",
+          "name": "Cochepaille",
+          "symbolSize": 11.809524666666666,
+          "x": -446.7876,
+          "y": 123.38005,
+          "value": 17.714287,
+          "category": 3
+        },
+        {
+          "id": "39",
+          "name": "Pontmercy",
+          "symbolSize": 6.323809333333333,
+          "x": 336.49738,
+          "y": -269.55914,
+          "value": 9.485714,
+          "category": 6
+        },
+        {
+          "id": "40",
+          "name": "Boulatruelle",
+          "symbolSize": 2.6666666666666665,
+          "x": 29.187843,
+          "y": -460.13132,
+          "value": 4,
+          "category": 7
+        },
+        {
+          "id": "41",
+          "name": "Eponine",
+          "symbolSize": 20.95238266666667,
+          "x": 238.36697,
+          "y": -210.00926,
+          "value": 31.428574,
+          "category": 7
+        },
+        {
+          "id": "42",
+          "name": "Anzelma",
+          "symbolSize": 6.323809333333333,
+          "x": 189.69513,
+          "y": -346.50662,
+          "value": 9.485714,
+          "category": 7
+        },
+        {
+          "id": "43",
+          "name": "Woman2",
+          "symbolSize": 6.323809333333333,
+          "x": -187.00418,
+          "y": -145.02663,
+          "value": 9.485714,
+          "category": 6
+        },
+        {
+          "id": "44",
+          "name": "MotherInnocent",
+          "symbolSize": 4.495239333333333,
+          "x": -252.99521,
+          "y": 129.87549,
+          "value": 6.742859,
+          "category": 4
+        },
+        {
+          "id": "45",
+          "name": "Gribier",
+          "symbolSize": 2.6666666666666665,
+          "x": -296.07935,
+          "y": 163.11964,
+          "value": 4,
+          "category": 4
+        },
+        {
+          "id": "46",
+          "name": "Jondrette",
+          "symbolSize": 2.6666666666666665,
+          "x": 550.3201,
+          "y": 522.4031,
+          "value": 4,
+          "category": 5
+        },
+        {
+          "id": "47",
+          "name": "MmeBurgon",
+          "symbolSize": 4.495239333333333,
+          "x": 488.13535,
+          "y": 356.8573,
+          "value": 6.742859,
+          "category": 5
+        },
+        {
+          "id": "48",
+          "name": "Gavroche",
+          "symbolSize": 41.06667066666667,
+          "x": 387.89572,
+          "y": 110.462326,
+          "value": 61.600006,
+          "category": 8
+        },
+        {
+          "id": "49",
+          "name": "Gillenormand",
+          "symbolSize": 13.638097333333334,
+          "x": 126.4831,
+          "y": 68.10622,
+          "value": 20.457146,
+          "category": 6
+        },
+        {
+          "id": "50",
+          "name": "Magnon",
+          "symbolSize": 4.495239333333333,
+          "x": 127.07365,
+          "y": -113.05923,
+          "value": 6.742859,
+          "category": 6
+        },
+        {
+          "id": "51",
+          "name": "MlleGillenormand",
+          "symbolSize": 13.638097333333334,
+          "x": 162.63559,
+          "y": 117.6565,
+          "value": 20.457146,
+          "category": 6
+        },
+        {
+          "id": "52",
+          "name": "MmePontmercy",
+          "symbolSize": 4.495239333333333,
+          "x": 353.66415,
+          "y": -205.89165,
+          "value": 6.742859,
+          "category": 6
+        },
+        {
+          "id": "53",
+          "name": "MlleVaubois",
+          "symbolSize": 2.6666666666666665,
+          "x": 165.43939,
+          "y": 339.7736,
+          "value": 4,
+          "category": 6
+        },
+        {
+          "id": "54",
+          "name": "LtGillenormand",
+          "symbolSize": 8.152382000000001,
+          "x": 137.69348,
+          "y": 196.1069,
+          "value": 12.228573,
+          "category": 6
+        },
+        {
+          "id": "55",
+          "name": "Marius",
+          "symbolSize": 35.58095333333333,
+          "x": 206.44687,
+          "y": -13.805411,
+          "value": 53.37143,
+          "category": 6
+        },
+        {
+          "id": "56",
+          "name": "BaronessT",
+          "symbolSize": 4.495239333333333,
+          "x": 194.82993,
+          "y": 224.78036,
+          "value": 6.742859,
+          "category": 6
+        },
+        {
+          "id": "57",
+          "name": "Mabeuf",
+          "symbolSize": 20.95238266666667,
+          "x": 597.6618,
+          "y": 135.18481,
+          "value": 31.428574,
+          "category": 8
+        },
+        {
+          "id": "58",
+          "name": "Enjolras",
+          "symbolSize": 28.266666666666666,
+          "x": 355.78366,
+          "y": -74.882454,
+          "value": 42.4,
+          "category": 8
+        },
+        {
+          "id": "59",
+          "name": "Combeferre",
+          "symbolSize": 20.95238266666667,
+          "x": 515.2961,
+          "y": -46.167564,
+          "value": 31.428574,
+          "category": 8
+        },
+        {
+          "id": "60",
+          "name": "Prouvaire",
+          "symbolSize": 17.295237333333333,
+          "x": 614.29285,
+          "y": -69.3104,
+          "value": 25.942856,
+          "category": 8
+        },
+        {
+          "id": "61",
+          "name": "Feuilly",
+          "symbolSize": 20.95238266666667,
+          "x": 550.1917,
+          "y": -128.17537,
+          "value": 31.428574,
+          "category": 8
+        },
+        {
+          "id": "62",
+          "name": "Courfeyrac",
+          "symbolSize": 24.609526666666667,
+          "x": 436.17184,
+          "y": -12.7286825,
+          "value": 36.91429,
+          "category": 8
+        },
+        {
+          "id": "63",
+          "name": "Bahorel",
+          "symbolSize": 22.780953333333333,
+          "x": 602.55225,
+          "y": 16.421427,
+          "value": 34.17143,
+          "category": 8
+        },
+        {
+          "id": "64",
+          "name": "Bossuet",
+          "symbolSize": 24.609526666666667,
+          "x": 455.81955,
+          "y": -115.45826,
+          "value": 36.91429,
+          "category": 8
+        },
+        {
+          "id": "65",
+          "name": "Joly",
+          "symbolSize": 22.780953333333333,
+          "x": 516.40784,
+          "y": 47.242233,
+          "value": 34.17143,
+          "category": 8
+        },
+        {
+          "id": "66",
+          "name": "Grantaire",
+          "symbolSize": 19.12381,
+          "x": 646.4313,
+          "y": -151.06331,
+          "value": 28.685715,
+          "category": 8
+        },
+        {
+          "id": "67",
+          "name": "MotherPlutarch",
+          "symbolSize": 2.6666666666666665,
+          "x": 668.9568,
+          "y": 204.65488,
+          "value": 4,
+          "category": 8
+        },
+        {
+          "id": "68",
+          "name": "Gueulemer",
+          "symbolSize": 19.12381,
+          "x": 78.4799,
+          "y": -347.15146,
+          "value": 28.685715,
+          "category": 7
+        },
+        {
+          "id": "69",
+          "name": "Babet",
+          "symbolSize": 19.12381,
+          "x": 150.35959,
+          "y": -298.50797,
+          "value": 28.685715,
+          "category": 7
+        },
+        {
+          "id": "70",
+          "name": "Claquesous",
+          "symbolSize": 19.12381,
+          "x": 137.3717,
+          "y": -410.2809,
+          "value": 28.685715,
+          "category": 7
+        },
+        {
+          "id": "71",
+          "name": "Montparnasse",
+          "symbolSize": 17.295237333333333,
+          "x": 234.87747,
+          "y": -400.85983,
+          "value": 25.942856,
+          "category": 7
+        },
+        {
+          "id": "72",
+          "name": "Toussaint",
+          "symbolSize": 6.323809333333333,
+          "x": 40.942253,
+          "y": 113.78272,
+          "value": 9.485714,
+          "category": 1
+        },
+        {
+          "id": "73",
+          "name": "Child1",
+          "symbolSize": 4.495239333333333,
+          "x": 437.939,
+          "y": 291.58234,
+          "value": 6.742859,
+          "category": 8
+        },
+        {
+          "id": "74",
+          "name": "Child2",
+          "symbolSize": 4.495239333333333,
+          "x": 466.04922,
+          "y": 283.3606,
+          "value": 6.742859,
+          "category": 8
+        },
+        {
+          "id": "75",
+          "name": "Brujon",
+          "symbolSize": 13.638097333333334,
+          "x": 238.79364,
+          "y": -314.06345,
+          "value": 20.457146,
+          "category": 7
+        },
+        {
+          "id": "76",
+          "name": "MmeHucheloup",
+          "symbolSize": 13.638097333333334,
+          "x": 712.18353,
+          "y": 4.8131495,
+          "value": 20.457146,
+          "category": 8
+        }
+      ],
+      "links": [
+        {
+          "source": "1",
+          "target": "0"
+        },
+        {
+          "source": "2",
+          "target": "0"
+        },
+        {
+          "source": "3",
+          "target": "0"
+        },
+        {
+          "source": "3",
+          "target": "2"
+        },
+        {
+          "source": "4",
+          "target": "0"
+        },
+        {
+          "source": "5",
+          "target": "0"
+        },
+        {
+          "source": "6",
+          "target": "0"
+        },
+        {
+          "source": "7",
+          "target": "0"
+        },
+        {
+          "source": "8",
+          "target": "0"
+        },
+        {
+          "source": "9",
+          "target": "0"
+        },
+        {
+          "source": "11",
+          "target": "0"
+        },
+        {
+          "source": "11",
+          "target": "2"
+        },
+        {
+          "source": "11",
+          "target": "3"
+        },
+        {
+          "source": "11",
+          "target": "10"
+        },
+        {
+          "source": "12",
+          "target": "11"
+        },
+        {
+          "source": "13",
+          "target": "11"
+        },
+        {
+          "source": "14",
+          "target": "11"
+        },
+        {
+          "source": "15",
+          "target": "11"
+        },
+        {
+          "source": "17",
+          "target": "16"
+        },
+        {
+          "source": "18",
+          "target": "16"
+        },
+        {
+          "source": "18",
+          "target": "17"
+        },
+        {
+          "source": "19",
+          "target": "16"
+        },
+        {
+          "source": "19",
+          "target": "17"
+        },
+        {
+          "source": "19",
+          "target": "18"
+        },
+        {
+          "source": "20",
+          "target": "16"
+        },
+        {
+          "source": "20",
+          "target": "17"
+        },
+        {
+          "source": "20",
+          "target": "18"
+        },
+        {
+          "source": "20",
+          "target": "19"
+        },
+        {
+          "source": "21",
+          "target": "16"
+        },
+        {
+          "source": "21",
+          "target": "17"
+        },
+        {
+          "source": "21",
+          "target": "18"
+        },
+        {
+          "source": "21",
+          "target": "19"
+        },
+        {
+          "source": "21",
+          "target": "20"
+        },
+        {
+          "source": "22",
+          "target": "16"
+        },
+        {
+          "source": "22",
+          "target": "17"
+        },
+        {
+          "source": "22",
+          "target": "18"
+        },
+        {
+          "source": "22",
+          "target": "19"
+        },
+        {
+          "source": "22",
+          "target": "20"
+        },
+        {
+          "source": "22",
+          "target": "21"
+        },
+        {
+          "source": "23",
+          "target": "11"
+        },
+        {
+          "source": "23",
+          "target": "12"
+        },
+        {
+          "source": "23",
+          "target": "16"
+        },
+        {
+          "source": "23",
+          "target": "17"
+        },
+        {
+          "source": "23",
+          "target": "18"
+        },
+        {
+          "source": "23",
+          "target": "19"
+        },
+        {
+          "source": "23",
+          "target": "20"
+        },
+        {
+          "source": "23",
+          "target": "21"
+        },
+        {
+          "source": "23",
+          "target": "22"
+        },
+        {
+          "source": "24",
+          "target": "11"
+        },
+        {
+          "source": "24",
+          "target": "23"
+        },
+        {
+          "source": "25",
+          "target": "11"
+        },
+        {
+          "source": "25",
+          "target": "23"
+        },
+        {
+          "source": "25",
+          "target": "24"
+        },
+        {
+          "source": "26",
+          "target": "11"
+        },
+        {
+          "source": "26",
+          "target": "16"
+        },
+        {
+          "source": "26",
+          "target": "24"
+        },
+        {
+          "source": "26",
+          "target": "25"
+        },
+        {
+          "source": "27",
+          "target": "11"
+        },
+        {
+          "source": "27",
+          "target": "23"
+        },
+        {
+          "source": "27",
+          "target": "24"
+        },
+        {
+          "source": "27",
+          "target": "25"
+        },
+        {
+          "source": "27",
+          "target": "26"
+        },
+        {
+          "source": "28",
+          "target": "11"
+        },
+        {
+          "source": "28",
+          "target": "27"
+        },
+        {
+          "source": "29",
+          "target": "11"
+        },
+        {
+          "source": "29",
+          "target": "23"
+        },
+        {
+          "source": "29",
+          "target": "27"
+        },
+        {
+          "source": "30",
+          "target": "23"
+        },
+        {
+          "source": "31",
+          "target": "11"
+        },
+        {
+          "source": "31",
+          "target": "23"
+        },
+        {
+          "source": "31",
+          "target": "27"
+        },
+        {
+          "source": "31",
+          "target": "30"
+        },
+        {
+          "source": "32",
+          "target": "11"
+        },
+        {
+          "source": "33",
+          "target": "11"
+        },
+        {
+          "source": "33",
+          "target": "27"
+        },
+        {
+          "source": "34",
+          "target": "11"
+        },
+        {
+          "source": "34",
+          "target": "29"
+        },
+        {
+          "source": "35",
+          "target": "11"
+        },
+        {
+          "source": "35",
+          "target": "29"
+        },
+        {
+          "source": "35",
+          "target": "34"
+        },
+        {
+          "source": "36",
+          "target": "11"
+        },
+        {
+          "source": "36",
+          "target": "29"
+        },
+        {
+          "source": "36",
+          "target": "34"
+        },
+        {
+          "source": "36",
+          "target": "35"
+        },
+        {
+          "source": "37",
+          "target": "11"
+        },
+        {
+          "source": "37",
+          "target": "29"
+        },
+        {
+          "source": "37",
+          "target": "34"
+        },
+        {
+          "source": "37",
+          "target": "35"
+        },
+        {
+          "source": "37",
+          "target": "36"
+        },
+        {
+          "source": "38",
+          "target": "11"
+        },
+        {
+          "source": "38",
+          "target": "29"
+        },
+        {
+          "source": "38",
+          "target": "34"
+        },
+        {
+          "source": "38",
+          "target": "35"
+        },
+        {
+          "source": "38",
+          "target": "36"
+        },
+        {
+          "source": "38",
+          "target": "37"
+        },
+        {
+          "source": "39",
+          "target": "25"
+        },
+        {
+          "source": "40",
+          "target": "25"
+        },
+        {
+          "source": "41",
+          "target": "24"
+        },
+        {
+          "source": "41",
+          "target": "25"
+        },
+        {
+          "source": "42",
+          "target": "24"
+        },
+        {
+          "source": "42",
+          "target": "25"
+        },
+        {
+          "source": "42",
+          "target": "41"
+        },
+        {
+          "source": "43",
+          "target": "11"
+        },
+        {
+          "source": "43",
+          "target": "26"
+        },
+        {
+          "source": "43",
+          "target": "27"
+        },
+        {
+          "source": "44",
+          "target": "11"
+        },
+        {
+          "source": "44",
+          "target": "28"
+        },
+        {
+          "source": "45",
+          "target": "28"
+        },
+        {
+          "source": "47",
+          "target": "46"
+        },
+        {
+          "source": "48",
+          "target": "11"
+        },
+        {
+          "source": "48",
+          "target": "25"
+        },
+        {
+          "source": "48",
+          "target": "27"
+        },
+        {
+          "source": "48",
+          "target": "47"
+        },
+        {
+          "source": "49",
+          "target": "11"
+        },
+        {
+          "source": "49",
+          "target": "26"
+        },
+        {
+          "source": "50",
+          "target": "24"
+        },
+        {
+          "source": "50",
+          "target": "49"
+        },
+        {
+          "source": "51",
+          "target": "11"
+        },
+        {
+          "source": "51",
+          "target": "26"
+        },
+        {
+          "source": "51",
+          "target": "49"
+        },
+        {
+          "source": "52",
+          "target": "39"
+        },
+        {
+          "source": "52",
+          "target": "51"
+        },
+        {
+          "source": "53",
+          "target": "51"
+        },
+        {
+          "source": "54",
+          "target": "26"
+        },
+        {
+          "source": "54",
+          "target": "49"
+        },
+        {
+          "source": "54",
+          "target": "51"
+        },
+        {
+          "source": "55",
+          "target": "11"
+        },
+        {
+          "source": "55",
+          "target": "16"
+        },
+        {
+          "source": "55",
+          "target": "25"
+        },
+        {
+          "source": "55",
+          "target": "26"
+        },
+        {
+          "source": "55",
+          "target": "39"
+        },
+        {
+          "source": "55",
+          "target": "41"
+        },
+        {
+          "source": "55",
+          "target": "48"
+        },
+        {
+          "source": "55",
+          "target": "49"
+        },
+        {
+          "source": "55",
+          "target": "51"
+        },
+        {
+          "source": "55",
+          "target": "54"
+        },
+        {
+          "source": "56",
+          "target": "49"
+        },
+        {
+          "source": "56",
+          "target": "55"
+        },
+        {
+          "source": "57",
+          "target": "41"
+        },
+        {
+          "source": "57",
+          "target": "48"
+        },
+        {
+          "source": "57",
+          "target": "55"
+        },
+        {
+          "source": "58",
+          "target": "11"
+        },
+        {
+          "source": "58",
+          "target": "27"
+        },
+        {
+          "source": "58",
+          "target": "48"
+        },
+        {
+          "source": "58",
+          "target": "55"
+        },
+        {
+          "source": "58",
+          "target": "57"
+        },
+        {
+          "source": "59",
+          "target": "48"
+        },
+        {
+          "source": "59",
+          "target": "55"
+        },
+        {
+          "source": "59",
+          "target": "57"
+        },
+        {
+          "source": "59",
+          "target": "58"
+        },
+        {
+          "source": "60",
+          "target": "48"
+        },
+        {
+          "source": "60",
+          "target": "58"
+        },
+        {
+          "source": "60",
+          "target": "59"
+        },
+        {
+          "source": "61",
+          "target": "48"
+        },
+        {
+          "source": "61",
+          "target": "55"
+        },
+        {
+          "source": "61",
+          "target": "57"
+        },
+        {
+          "source": "61",
+          "target": "58"
+        },
+        {
+          "source": "61",
+          "target": "59"
+        },
+        {
+          "source": "61",
+          "target": "60"
+        },
+        {
+          "source": "62",
+          "target": "41"
+        },
+        {
+          "source": "62",
+          "target": "48"
+        },
+        {
+          "source": "62",
+          "target": "55"
+        },
+        {
+          "source": "62",
+          "target": "57"
+        },
+        {
+          "source": "62",
+          "target": "58"
+        },
+        {
+          "source": "62",
+          "target": "59"
+        },
+        {
+          "source": "62",
+          "target": "60"
+        },
+        {
+          "source": "62",
+          "target": "61"
+        },
+        {
+          "source": "63",
+          "target": "48"
+        },
+        {
+          "source": "63",
+          "target": "55"
+        },
+        {
+          "source": "63",
+          "target": "57"
+        },
+        {
+          "source": "63",
+          "target": "58"
+        },
+        {
+          "source": "63",
+          "target": "59"
+        },
+        {
+          "source": "63",
+          "target": "60"
+        },
+        {
+          "source": "63",
+          "target": "61"
+        },
+        {
+          "source": "63",
+          "target": "62"
+        },
+        {
+          "source": "64",
+          "target": "11"
+        },
+        {
+          "source": "64",
+          "target": "48"
+        },
+        {
+          "source": "64",
+          "target": "55"
+        },
+        {
+          "source": "64",
+          "target": "57"
+        },
+        {
+          "source": "64",
+          "target": "58"
+        },
+        {
+          "source": "64",
+          "target": "59"
+        },
+        {
+          "source": "64",
+          "target": "60"
+        },
+        {
+          "source": "64",
+          "target": "61"
+        },
+        {
+          "source": "64",
+          "target": "62"
+        },
+        {
+          "source": "64",
+          "target": "63"
+        },
+        {
+          "source": "65",
+          "target": "48"
+        },
+        {
+          "source": "65",
+          "target": "55"
+        },
+        {
+          "source": "65",
+          "target": "57"
+        },
+        {
+          "source": "65",
+          "target": "58"
+        },
+        {
+          "source": "65",
+          "target": "59"
+        },
+        {
+          "source": "65",
+          "target": "60"
+        },
+        {
+          "source": "65",
+          "target": "61"
+        },
+        {
+          "source": "65",
+          "target": "62"
+        },
+        {
+          "source": "65",
+          "target": "63"
+        },
+        {
+          "source": "65",
+          "target": "64"
+        },
+        {
+          "source": "66",
+          "target": "48"
+        },
+        {
+          "source": "66",
+          "target": "58"
+        },
+        {
+          "source": "66",
+          "target": "59"
+        },
+        {
+          "source": "66",
+          "target": "60"
+        },
+        {
+          "source": "66",
+          "target": "61"
+        },
+        {
+          "source": "66",
+          "target": "62"
+        },
+        {
+          "source": "66",
+          "target": "63"
+        },
+        {
+          "source": "66",
+          "target": "64"
+        },
+        {
+          "source": "66",
+          "target": "65"
+        },
+        {
+          "source": "67",
+          "target": "57"
+        },
+        {
+          "source": "68",
+          "target": "11"
+        },
+        {
+          "source": "68",
+          "target": "24"
+        },
+        {
+          "source": "68",
+          "target": "25"
+        },
+        {
+          "source": "68",
+          "target": "27"
+        },
+        {
+          "source": "68",
+          "target": "41"
+        },
+        {
+          "source": "68",
+          "target": "48"
+        },
+        {
+          "source": "69",
+          "target": "11"
+        },
+        {
+          "source": "69",
+          "target": "24"
+        },
+        {
+          "source": "69",
+          "target": "25"
+        },
+        {
+          "source": "69",
+          "target": "27"
+        },
+        {
+          "source": "69",
+          "target": "41"
+        },
+        {
+          "source": "69",
+          "target": "48"
+        },
+        {
+          "source": "69",
+          "target": "68"
+        },
+        {
+          "source": "70",
+          "target": "11"
+        },
+        {
+          "source": "70",
+          "target": "24"
+        },
+        {
+          "source": "70",
+          "target": "25"
+        },
+        {
+          "source": "70",
+          "target": "27"
+        },
+        {
+          "source": "70",
+          "target": "41"
+        },
+        {
+          "source": "70",
+          "target": "58"
+        },
+        {
+          "source": "70",
+          "target": "68"
+        },
+        {
+          "source": "70",
+          "target": "69"
+        },
+        {
+          "source": "71",
+          "target": "11"
+        },
+        {
+          "source": "71",
+          "target": "25"
+        },
+        {
+          "source": "71",
+          "target": "27"
+        },
+        {
+          "source": "71",
+          "target": "41"
+        },
+        {
+          "source": "71",
+          "target": "48"
+        },
+        {
+          "source": "71",
+          "target": "68"
+        },
+        {
+          "source": "71",
+          "target": "69"
+        },
+        {
+          "source": "71",
+          "target": "70"
+        },
+        {
+          "source": "72",
+          "target": "11"
+        },
+        {
+          "source": "72",
+          "target": "26"
+        },
+        {
+          "source": "72",
+          "target": "27"
+        },
+        {
+          "source": "73",
+          "target": "48"
+        },
+        {
+          "source": "74",
+          "target": "48"
+        },
+        {
+          "source": "74",
+          "target": "73"
+        },
+        {
+          "source": "75",
+          "target": "25"
+        },
+        {
+          "source": "75",
+          "target": "41"
+        },
+        {
+          "source": "75",
+          "target": "48"
+        },
+        {
+          "source": "75",
+          "target": "68"
+        },
+        {
+          "source": "75",
+          "target": "69"
+        },
+        {
+          "source": "75",
+          "target": "70"
+        },
+        {
+          "source": "75",
+          "target": "71"
+        },
+        {
+          "source": "76",
+          "target": "48"
+        },
+        {
+          "source": "76",
+          "target": "58"
+        },
+        {
+          "source": "76",
+          "target": "62"
+        },
+        {
+          "source": "76",
+          "target": "63"
+        },
+        {
+          "source": "76",
+          "target": "64"
+        },
+        {
+          "source": "76",
+          "target": "65"
+        },
+        {
+          "source": "76",
+          "target": "66"
+        }
+      ],
+      "categories": [
+        {
+          "name": "A"
+        },
+        {
+          "name": "B"
+        },
+        {
+          "name": "C"
+        },
+        {
+          "name": "D"
+        },
+        {
+          "name": "E"
+        },
+        {
+          "name": "F"
+        },
+        {
+          "name": "G"
+        },
+        {
+          "name": "H"
+        },
+        {
+          "name": "I"
+        }
+      ]
+    }
+
+    var graph = {
+    "nodes": [
+        {
+            "id": "80101",
+            "name": "Downtown Long Beach Station",
+            "SymbolSize": 15,
+            "x": -118.19292099988019,
+            "y": 33.76807099973904,
+            "category": 0
+        },
+        {
+            "id": "80102",
+            "name": "Pacific Ave Station",
+            "SymbolSize": 15,
+            "x": -118.1936999994702,
+            "y": 33.77225800005807,
+            "category": 0
+        },
+        {
+            "id": "80105",
+            "name": "Anaheim Street Station",
+            "SymbolSize": 15,
+            "x": -118.18938400015178,
+            "y": 33.781830000366064,
+            "category": 0
+        },
+        {
+            "id": "80106",
+            "name": "Pacific Coast Hwy Station",
+            "SymbolSize": 15,
+            "x": -118.18938200009414,
+            "y": 33.7890899999179,
+            "category": 0
+        },
+        {
+            "id": "80107",
+            "name": "Willow Street Station",
+            "SymbolSize": 15,
+            "x": -118.18983399979538,
+            "y": 33.8070790000511,
+            "category": 0
+        },
+        {
+            "id": "80108",
+            "name": "Wardlow Station",
+            "SymbolSize": 15,
+            "x": -118.1960899998735,
+            "y": 33.81986500042085,
+            "category": 0
+        },
+        {
+            "id": "80109",
+            "name": "Del Amo Station",
+            "SymbolSize": 15,
+            "x": -118.21101700040077,
+            "y": 33.84822200019087,
+            "category": 0
+        },
+        {
+            "id": "80110",
+            "name": "Artesia Station",
+            "SymbolSize": 15,
+            "x": -118.22250300024177,
+            "y": 33.87608200008813,
+            "category": 0
+        },
+        {
+            "id": "80111",
+            "name": "Compton Station",
+            "SymbolSize": 15,
+            "x": -118.22424899999488,
+            "y": 33.89749000016153,
+            "category": 0
+        },
+        {
+            "id": "80112",
+            "name": "Willowbrook - Rosa Parks Station - Metro Blue Line",
+            "SymbolSize": 15,
+            "x": -118.23755500026044,
+            "y": 33.92804799984574,
+            "category": 0
+        },
+        {
+            "id": "80113",
+            "name": "103rd Street / Watts Towers  Station",
+            "SymbolSize": 15,
+            "x": -118.24315899972797,
+            "y": 33.942220000322884,
+            "category": 0
+        },
+        {
+            "id": "80114",
+            "name": "Firestone Station",
+            "SymbolSize": 15,
+            "x": -118.2432049999076,
+            "y": 33.95961099981681,
+            "category": 0
+        },
+        {
+            "id": "80115",
+            "name": "Florence Station",
+            "SymbolSize": 15,
+            "x": -118.24327099967796,
+            "y": 33.97374000005275,
+            "category": 0
+        },
+        {
+            "id": "80116",
+            "name": "Slauson Station",
+            "SymbolSize": 15,
+            "x": -118.24339800004967,
+            "y": 33.98876000023379,
+            "category": 0
+        },
+        {
+            "id": "80117",
+            "name": "Vernon Station",
+            "SymbolSize": 15,
+            "x": -118.24330300035814,
+            "y": 34.00292000031266,
+            "category": 0
+        },
+        {
+            "id": "80118",
+            "name": "Washington Station",
+            "SymbolSize": 15,
+            "x": -118.24308400001725,
+            "y": 34.019649999824246,
+            "category": 0
+        },
+        {
+            "id": "80119",
+            "name": "San Pedro Street Station",
+            "SymbolSize": 15,
+            "x": -118.2555050001109,
+            "y": 34.026807000005206,
+            "category": 0
+        },
+        {
+            "id": "80120",
+            "name": "Grand / LATTC Station",
+            "SymbolSize": 15,
+            "x": -118.26933299993601,
+            "y": 34.03315500006921,
+            "category": 0
+        },
+        {
+            "id": "80121",
+            "name": "Pico Station",
+            "SymbolSize": 15,
+            "x": -118.26611800020636,
+            "y": 34.040735000325974,
+            "category": 0
+        },
+        {
+            "id": "80122",
+            "name": "7th St / Metro Center Station - Metro Blue & Expo Lines",
+            "SymbolSize": 15,
+            "x": -118.25882200042645,
+            "y": 34.04860999987021,
+            "category": 0
+        },
+        {
+            "id": "80123",
+            "name": "LATTC / Ortho Institute Station",
+            "SymbolSize": 15,
+            "x": -118.27360299981005,
+            "y": 34.02911200034815,
+            "category": 1
+        },
+        {
+            "id": "80124",
+            "name": "Jefferson / USC Station",
+            "SymbolSize": 15,
+            "x": -118.27811800001174,
+            "y": 34.02212300041644,
+            "category": 1
+        },
+        {
+            "id": "80125",
+            "name": "Expo Park / USC Station",
+            "SymbolSize": 15,
+            "x": -118.28573400004424,
+            "y": 34.01822700035439,
+            "category": 1
+        },
+        {
+            "id": "80126",
+            "name": "Expo / Vermont Station",
+            "SymbolSize": 15,
+            "x": -118.29154000016672,
+            "y": 34.018245000352685,
+            "category": 1
+        },
+        {
+            "id": "80127",
+            "name": "Expo / Western Station",
+            "SymbolSize": 15,
+            "x": -118.3089099999928,
+            "y": 34.01833099993332,
+            "category": 1
+        },
+        {
+            "id": "80128",
+            "name": "Expo / Crenshaw Station",
+            "SymbolSize": 15,
+            "x": -118.33507800022828,
+            "y": 34.0225259998206,
+            "category": 1
+        },
+        {
+            "id": "80129",
+            "name": "Farmdale Station",
+            "SymbolSize": 15,
+            "x": -118.34609500019637,
+            "y": 34.02398100003797,
+            "category": 1
+        },
+        {
+            "id": "80130",
+            "name": "Expo / La Brea Station",
+            "SymbolSize": 15,
+            "x": -118.35515900044052,
+            "y": 34.02480300035486,
+            "category": 1
+        },
+        {
+            "id": "80131",
+            "name": "La Cienega / Jefferson Station",
+            "SymbolSize": 15,
+            "x": -118.37211999973364,
+            "y": 34.02635500011092,
+            "category": 1
+        },
+        {
+            "id": "80132",
+            "name": "Culver City Station",
+            "SymbolSize": 15,
+            "x": -118.38898599990145,
+            "y": 34.02789599996983,
+            "category": 1
+        },
+        {
+            "id": "80153",
+            "name": "1st Street Station",
+            "SymbolSize": 15,
+            "x": -118.18936200041134,
+            "y": 33.76874000037536,
+            "category": 0
+        },
+        {
+            "id": "80154",
+            "name": "5th Street Station",
+            "SymbolSize": 15,
+            "x": -118.18941200035138,
+            "y": 33.7735979995706,
+            "category": 0
+        },
+        {
+            "id": "80201",
+            "name": "North Hollywood Station",
+            "SymbolSize": 15,
+            "x": -118.37680800021687,
+            "y": 34.168503999792364,
+            "category": 2
+        },
+        {
+            "id": "80202",
+            "name": "Universal / Studio City Station",
+            "SymbolSize": 15,
+            "x": -118.36269899982237,
+            "y": 34.14000200029585,
+            "category": 2
+        },
+        {
+            "id": "80203",
+            "name": "Hollywood / Highland Station",
+            "SymbolSize": 15,
+            "x": -118.33854899982131,
+            "y": 34.10154699972406,
+            "category": 2
+        },
+        {
+            "id": "80204",
+            "name": "Hollywood / Vine Station",
+            "SymbolSize": 15,
+            "x": -118.32518000013556,
+            "y": 34.101630000054115,
+            "category": 2
+        },
+        {
+            "id": "80205",
+            "name": "Hollywood / Western Station",
+            "SymbolSize": 15,
+            "x": -118.30811700023226,
+            "y": 34.10173700013553,
+            "category": 2
+        },
+        {
+            "id": "80206",
+            "name": "Vermont / Sunset Station",
+            "SymbolSize": 15,
+            "x": -118.29175599997755,
+            "y": 34.09770800020225,
+            "category": 2
+        },
+        {
+            "id": "80207",
+            "name": "Vermont / Santa Monica Station",
+            "SymbolSize": 15,
+            "x": -118.29173000041749,
+            "y": 34.08990999977402,
+            "category": 2
+        },
+        {
+            "id": "80208",
+            "name": "Vermont / Beverly Station",
+            "SymbolSize": 15,
+            "x": -118.29168600028255,
+            "y": 34.076525999971274,
+            "category": 2
+        },
+        {
+            "id": "80209",
+            "name": "Wilshire / Vermont Station",
+            "SymbolSize": 15,
+            "x": -118.29008199954043,
+            "y": 34.06270100002402,
+            "category": 2
+        },
+        {
+            "id": "80210",
+            "name": "Westlake / MacArthur Park Station",
+            "SymbolSize": 15,
+            "x": -118.27487900027457,
+            "y": 34.05636799972788,
+            "category": 2
+        },
+        {
+            "id": "80211",
+            "name": "7th St / Metro Center Station - Metro Red & Purple Lines",
+            "SymbolSize": 15,
+            "x": -118.25868200001985,
+            "y": 34.048634000179824,
+            "category": 2
+        },
+        {
+            "id": "80212",
+            "name": "Pershing Square Station",
+            "SymbolSize": 15,
+            "x": -118.25125899962754,
+            "y": 34.04931600034301,
+            "category": 2
+        },
+        {
+            "id": "80213",
+            "name": "Civic Center / Grand Park Station",
+            "SymbolSize": 15,
+            "x": -118.24605700043661,
+            "y": 34.0549000003663,
+            "category": 2
+        },
+        {
+            "id": "80214",
+            "name": "Union Station - Metro Red & Purple Lines",
+            "SymbolSize": 15,
+            "x": -118.23424900018837,
+            "y": 34.056196999566886,
+            "category": 2
+        },
+        {
+            "id": "80215",
+            "name": "Wilshire / Normandie Station",
+            "SymbolSize": 15,
+            "x": -118.30145799996596,
+            "y": 34.06175300040925,
+            "category": 3
+        },
+        {
+            "id": "80216",
+            "name": "Wilshire / Western Station",
+            "SymbolSize": 15,
+            "x": -118.3087560005219,
+            "y": 34.0616889998001,
+            "category": 3
+        },
+        {
+            "id": "80301",
+            "name": "Redondo Beach Station",
+            "SymbolSize": 15,
+            "x": -118.36919600020805,
+            "y": 33.89463999991437,
+            "category": 4
+        },
+        {
+            "id": "80302",
+            "name": "Douglas Station",
+            "SymbolSize": 15,
+            "x": -118.38311300036254,
+            "y": 33.9052989998203,
+            "category": 4
+        },
+        {
+            "id": "80303",
+            "name": "El Segundo Station",
+            "SymbolSize": 15,
+            "x": -118.38653899948176,
+            "y": 33.916062999896944,
+            "category": 4
+        },
+        {
+            "id": "80304",
+            "name": "Mariposa Station",
+            "SymbolSize": 15,
+            "x": -118.38757200040996,
+            "y": 33.923199999610524,
+            "category": 4
+        },
+        {
+            "id": "80305",
+            "name": "Aviation / LAX Station",
+            "SymbolSize": 15,
+            "x": -118.37713399951298,
+            "y": 33.92962099967193,
+            "category": 4
+        },
+        {
+            "id": "80306",
+            "name": "Hawthorne / Lennox Station",
+            "SymbolSize": 15,
+            "x": -118.35160199967572,
+            "y": 33.93340799977214,
+            "category": 4
+        },
+        {
+            "id": "80307",
+            "name": "Crenshaw Station",
+            "SymbolSize": 15,
+            "x": -118.32654999957477,
+            "y": 33.92520099956265,
+            "category": 4
+        },
+        {
+            "id": "80308",
+            "name": "Vermont / Athens Station",
+            "SymbolSize": 15,
+            "x": -118.29173299995566,
+            "y": 33.92868300021043,
+            "category": 4
+        },
+        {
+            "id": "80309",
+            "name": "Harbor Freeway Station",
+            "SymbolSize": 15,
+            "x": -118.28110000026243,
+            "y": 33.92871400026039,
+            "category": 4
+        },
+        {
+            "id": "80310",
+            "name": "Avalon Station",
+            "SymbolSize": 15,
+            "x": -118.26521699947209,
+            "y": 33.92746499978556,
+            "category": 4
+        },
+        {
+            "id": "80311",
+            "name": "Willowbrook - Rosa Parks Station - Metro Green Line",
+            "SymbolSize": 15,
+            "x": -118.23805199981469,
+            "y": 33.92825800031017,
+            "category": 4
+        },
+        {
+            "id": "80312",
+            "name": "Long Beach Blvd Station",
+            "SymbolSize": 15,
+            "x": -118.20994500025516,
+            "y": 33.92487999958962,
+            "category": 4
+        },
+        {
+            "id": "80313",
+            "name": "Lakewood Blvd Station",
+            "SymbolSize": 15,
+            "x": -118.14060000053131,
+            "y": 33.913069999875226,
+            "category": 4
+        },
+        {
+            "id": "80314",
+            "name": "Norwalk Station",
+            "SymbolSize": 15,
+            "x": -118.10471700004186,
+            "y": 33.91403300021094,
+            "category": 4
+        },
+        {
+            "id": "80401",
+            "name": "Atlantic Station",
+            "SymbolSize": 15,
+            "x": -118.15446899995854,
+            "y": 34.033398000239195,
+            "category": 5
+        },
+        {
+            "id": "80402",
+            "name": "East LA Civic Center Station",
+            "SymbolSize": 15,
+            "x": -118.161205999753,
+            "y": 34.03336399996033,
+            "category": 5
+        },
+        {
+            "id": "80403",
+            "name": "Maravilla Station",
+            "SymbolSize": 15,
+            "x": -118.16814000015704,
+            "y": 34.03331900002552,
+            "category": 5
+        },
+        {
+            "id": "80404",
+            "name": "Indiana Station",
+            "SymbolSize": 15,
+            "x": -118.19218200022898,
+            "y": 34.034300000300235,
+            "category": 5
+        },
+        {
+            "id": "80405",
+            "name": "Soto Station",
+            "SymbolSize": 15,
+            "x": -118.21006099982142,
+            "y": 34.04374699968801,
+            "category": 5
+        },
+        {
+            "id": "80406",
+            "name": "Mariachi Plaza / Boyle Heights Station",
+            "SymbolSize": 15,
+            "x": -118.21964800016036,
+            "y": 34.04721500003432,
+            "category": 5
+        },
+        {
+            "id": "80407",
+            "name": "Pico / Aliso Station",
+            "SymbolSize": 15,
+            "x": -118.22594000038869,
+            "y": 34.0476339997117,
+            "category": 5
+        },
+        {
+            "id": "80408",
+            "name": "Little Tokyo / Arts District Station",
+            "SymbolSize": 15,
+            "x": -118.23790100026723,
+            "y": 34.05010000008611,
+            "category": 5
+        },
+        {
+            "id": "80409",
+            "name": "Union Station - Metro Gold Line",
+            "SymbolSize": 15,
+            "x": -118.23475899954124,
+            "y": 34.056060999752866,
+            "category": 5
+        },
+        {
+            "id": "80410",
+            "name": "Chinatown Station",
+            "SymbolSize": 15,
+            "x": -118.23583999967346,
+            "y": 34.063860999711736,
+            "category": 5
+        },
+        {
+            "id": "80411",
+            "name": "Lincoln Heights / Cypress Park Station",
+            "SymbolSize": 15,
+            "x": -118.22042899987187,
+            "y": 34.08094899981074,
+            "category": 5
+        },
+        {
+            "id": "80412",
+            "name": "Heritage Square / Arroyo Station",
+            "SymbolSize": 15,
+            "x": -118.21321299991507,
+            "y": 34.08722700016255,
+            "category": 5
+        },
+        {
+            "id": "80413",
+            "name": "Southwest Museum Station",
+            "SymbolSize": 15,
+            "x": -118.20671199989988,
+            "y": 34.09824299960079,
+            "category": 5
+        },
+        {
+            "id": "80414",
+            "name": "Highland Park Station",
+            "SymbolSize": 15,
+            "x": -118.19260600025261,
+            "y": 34.11117900018589,
+            "category": 5
+        },
+        {
+            "id": "80415",
+            "name": "South Pasadena Station",
+            "SymbolSize": 15,
+            "x": -118.15788600023126,
+            "y": 34.11518600012085,
+            "category": 5
+        },
+        {
+            "id": "80416",
+            "name":"Fillmore Station",
+            "SymbolSize": 15,
+            "x": -118.14812599988883,
+            "y": 34.133520999572184,
+            "category": 5
+        },
+        {
+            "id": "80417",
+            "name": "Del Mar Station",
+            "SymbolSize": 15,
+            "x": -118.14821399976204,
+            "y": 34.141910000383575,
+            "category": 5
+        },
+        {
+            "id": "80418",
+            "name": "Memorial Park Station",
+            "SymbolSize": 15,
+            "x": -118.14751200027115,
+            "y": 34.148355999935816,
+            "category": 5
+        },
+        {
+            "id": "80419",
+            "name": "Lake Station",
+            "SymbolSize": 15,
+            "x": -118.13138999946663,
+            "y": 34.15180599983858,
+            "category": 5
+        },
+        {
+            "id": "80420",
+            "name": "Allen Station",
+            "SymbolSize": 15,
+            "x": -118.11434799946551,
+            "y": 34.152417000414914,
+            "category": 5
+        },
+        {
+            "id": "80421",
+            "name": "Sierra Madre Villa Station",
+            "SymbolSize": 15,
+            "x": -118.08121199954985,
+            "y": 34.147752000256695,
+            "category": 5
+        },
+        {
+            "id": "80133",
+            "name": "Palms Station",
+            "SymbolSize": 15,
+            "x": -118.40425500028769,
+            "y": 34.02932299999053,
+            "category": 1
+        },
+        {
+            "id": "80134",
+            "name": "Westwood / Rancho Park Station",
+            "SymbolSize": 15,
+            "x": -118.42457599982195,
+            "y": 34.0368159998897,
+            "category": 1
+        },
+        {
+            "id": "80135",
+            "name": "Expo / Sepulveda Station",
+            "SymbolSize": 15,
+            "x": -118.43423399951705,
+            "y": 34.03540799990164,
+            "category": 1
+        },
+        {
+            "id": "80136",
+            "name": "Expo / Bundy Station",
+            "SymbolSize": 15,
+            "x": -118.45289600037239,
+            "y": 34.031704999614426,
+            "category": 1
+        },
+        {
+            "id": "80137",
+            "name": "26th St / Bergamot Station",
+            "SymbolSize": 15,
+            "x": -118.4691199995661,
+            "y": 34.02799499962183,
+            "category": 1
+        },
+        {
+            "id": "80138",
+            "name": "17th St / SMC Station",
+            "SymbolSize": 15,
+            "x": -118.48037200020526,
+            "y": 34.023154999680855,
+            "category": 1
+        },
+        {
+            "id": "80139",
+            "name": "Downtown Santa Monica Station",
+            "SymbolSize": 15,
+            "x": -118.49138399953792,
+            "y": 34.01400999976604,
+            "category": 1
+        },
+        {
+            "id": "80422",
+            "name": "Arcadia Station",
+            "SymbolSize": 15,
+            "x": -118.02919900021266,
+            "y": 34.142859999768774,
+            "category": 5
+        },
+        {
+            "id": "80423",
+            "name": "Monrovia Station",
+            "SymbolSize": 15,
+            "x": -118.00347299952888,
+            "y": 34.13315499963274,
+            "category": 5
+        },
+        {
+            "id": "80424",
+            "name": "Duarte / City of Hope Station",
+            "SymbolSize": 15,
+            "x": -117.96768000026172,
+            "y": 34.13251800001596,
+            "category": 5
+        },
+        {
+            "id": "80425",
+            "name": "Irwindale Station",
+            "SymbolSize": 15,
+            "x": -117.93250599951757,
+            "y": 34.129048000333256,
+            "category": 5
+        },
+        {
+            "id": "80426",
+            "name": "Azusa Downtown Station",
+            "SymbolSize": 15,
+            "x": -117.90663100000828,
+            "y": 34.13586300002205,
+            "category": 5
+        },
+        {
+            "id": "80427",
+            "name": "APU / Citrus College Station",
+            "SymbolSize": 15,
+            "x": -117.89163599946599,
+            "y": 34.13681399975243,
+            "category": 5
+        },
+        // {
+        //     "id": "80121",
+        //     "name": "Pico Station",
+        //     "SymbolSize": 15,
+        //     "x": -118.26611800020636,
+        //     "y": 34.040735000325974,
+        //     "category": 1
+        // },
+        // {
+        //     "id": "80122",
+        //     "name": "7th St / Metro Center Station - Metro Blue & Expo Lines",
+        //     "SymbolSize": 15,
+        //     "x": -118.25882200042645,
+        //     "y": 34.04860999987021,
+        //     "category": 1
+        // },
+        // {
+        //     "id": "80209",
+        //     "name": "Wilshire / Vermont Station",
+        //     "SymbolSize": 15,
+        //     "x": -118.29008199954043,
+        //     "y": 34.06270100002402,
+        //     "category": 3
+        // },
+        // {
+        //     "id": "80210",
+        //     "name": "Westlake / MacArthur Park Station",
+        //     "SymbolSize": 15,
+        //     "x": -118.27487900027457,
+        //     "y": 34.05636799972788,
+        //     "category": 3
+        // },
+        // {
+        //     "id": "80211",
+        //     "name": "7th St / Metro Center Station - Metro Red & Purple Lines",
+        //     "SymbolSize": 15,
+        //     "x": -118.25868200001985,
+        //     "y": 34.048634000179824,
+        //     "category": 3
+        // },
+        // {
+        //     "id": "80212",
+        //     "name": "Pershing Square Station",
+        //     "SymbolSize": 15,
+        //     "x": -118.25125899962754,
+        //     "y": 34.04931600034301,
+        //     "category": 3
+        // },
+        // {
+        //     "id": "80213",
+        //     "name": "Civic Center / Grand Park Station",
+        //     "SymbolSize": 15,
+        //     "x": -118.24605700043661,
+        //     "y": 34.0549000003663,
+        //     "category": 3
+        // },
+        // {
+        //     "id": "80214",
+        //     "name": "Union Station - Metro Red & Purple Lines",
+        //     "SymbolSize": 15,
+        //     "x": -118.23424900018837,
+        //     "y": 34.056196999566886,
+        //     "category": 3
+        // }
+    ],
+    "links": [
+        {
+            "source": "80122",
+            "target": "80121"
+        },
+        {
+            "source": "80121",
+            "target": "80120"
+        },
+        {
+            "source": "80120",
+            "target": "80119"
+        },
+        {
+            "source": "80119",
+            "target": "80118"
+        },
+        {
+            "source": "80118",
+            "target": "80117"
+        },
+        {
+            "source": "80117",
+            "target": "80116"
+        },
+        {
+            "source": "80116",
+            "target": "80115"
+        },
+        {
+            "source": "80115",
+            "target": "80114"
+        },
+        {
+            "source": "80114",
+            "target": "80113"
+        },
+        {
+            "source": "80113",
+            "target": "80112"
+        },
+        {
+            "source": "80112",
+            "target": "80111"
+        },
+        {
+            "source": "80111",
+            "target": "80110"
+        },
+        {
+            "source": "80110",
+            "target": "80109"
+        },
+        {
+            "source": "80109",
+            "target": "80108"
+        },
+        {
+            "source": "80108",
+            "target": "80107"
+        },
+        {
+            "source": "80107",
+            "target": "80106"
+        },
+        {
+            "source": "80106",
+            "target": "80105"
+        },
+        {
+            "source": "80105",
+            "target": "80154"
+        },
+        {
+            "source": "80154",
+            "target": "80153"
+        },
+        {
+            "source": "80153",
+            "target": "80101"
+        },
+        {
+            "source": "80122",
+            "target": "80121"
+        },
+        {
+            "source": "80121",
+            "target": "80123"
+        },
+        {
+            "source": "80123",
+            "target": "80124"
+        },
+        {
+            "source": "80124",
+            "target": "80125"
+        },
+        {
+            "source": "80125",
+            "target": "80126"
+        },
+        { 
+            "source": "80126",
+            "target": "80127"
+        },
+        { 
+            "source": "80127",
+            "target": "80128"
+        },
+        { 
+            "source": "80128",
+            "target": "80129"
+        },
+        { 
+            "source": "80129",
+            "target": "80130"
+        },
+        { 
+            "source": "80130",
+            "target": "80131"
+        },
+        { 
+            "source": "80131",
+            "target": "80132"
+        },
+        { 
+            "source": "80132",
+            "target": "80133"
+        },
+        { 
+            "source": "80133",
+            "target": "80134"
+        },
+        { 
+            "source": "80134",
+            "target": "80135"
+        },
+        { 
+            "source": "80135",
+            "target": "80136"
+        },
+        { 
+            "source": "80136",
+            "target": "80137"
+        },
+        { 
+            "source": "80137",
+            "target": "80138"
+        },
+        { 
+            "source": "80138",
+            "target": "80139"
+        },
+        { 
+            "source": "80201",
+            "target": "80202"
+        },
+        {
+            "source": "80202",
+            "target": "80203" 
+        },
+        {
+            "source": "80203",
+            "target": "80204" 
+        },
+        {
+            "source": "80204",
+            "target": "80205" 
+        },
+        {
+            "source": "80205",
+            "target": "80206" 
+        },
+        {
+            "source": "80206",
+            "target": "80207" 
+        },
+        {
+            "source": "80207",
+            "target": "80208" 
+        },
+        {
+            "source": "80208",
+            "target": "80209" 
+        },
+        {
+            "source": "80209",
+            "target": "80210" 
+        },
+        {
+            "source": "80210",
+            "target": "80211" 
+        },
+        {
+            "source": "80211",
+            "target": "80212" 
+        },
+        {
+            "source": "80212",
+            "target": "80213" 
+        },
+        {
+            "source": "80213",
+            "target": "80214" 
+        },
+        {
+            "source": "80216",
+            "target": "80215" 
+        },
+        {
+            "source": "80215",
+            "target": "80209" 
+        },
+        { 
+            "source": "80209",
+            "target": "80210" 
+        },
+        { 
+            "source": "80210",
+            "target": "80211" 
+        },
+        { 
+            "source": "80211",
+            "target": "80212" 
+        },
+        { 
+            "source": "80212",
+            "target": "80213" 
+        },
+        { 
+            "source": "80213",
+            "target": "80214" 
+        },
+        { 
+            "source": "80301",
+            "target": "80302" 
+        },
+        { 
+            "source": "80302",
+            "target": "80303" 
+        },
+        { 
+            "source": "80303",
+            "target": "80304" 
+        },
+        { 
+            "source": "80304",
+            "target": "80305" 
+        },
+        { 
+            "source": "80305",
+            "target": "80306" 
+        },
+        { 
+            "source": "80306",
+            "target": "80307" 
+        },
+        { 
+            "source": "80307",
+            "target": "80308" 
+        },
+        { 
+            "source": "80308",
+            "target": "80309" 
+        },
+        { 
+            "source": "80309",
+            "target": "80310" 
+        },
+        { 
+            "source": "80310",
+            "target": "80311" 
+        },
+        { 
+            "source": "80311",
+            "target": "80312" 
+        },
+        { 
+            "source": "80312",
+            "target": "80313" 
+        },
+        { 
+            "source": "80313",
+            "target": "80314" 
+        },
+        { 
+            "source": "80409",
+            "target": "80410" 
+        },
+        { 
+            "source": "80410",
+            "target": "80411" 
+        },
+        { 
+            "source": "80411",
+            "target": "80412" 
+        },
+        { 
+            "source": "80412",
+            "target": "80413" 
+        },
+        { 
+            "source": "80413",
+            "target": "80414" 
+        },
+        { 
+            "source": "80414",
+            "target": "80415" 
+        },
+        { 
+            "source": "80415",
+            "target": "80416" 
+        },
+        { 
+            "source": "80416",
+            "target": "80417" 
+        },
+        { 
+            "source": "80417",
+            "target": "80418" 
+        },
+        { 
+            "source": "80418",
+            "target": "80419" 
+        },
+        { 
+            "source": "80419",
+            "target": "80420" 
+        },
+        { 
+            "source": "80420",
+            "target": "80421" 
+        },
+        { 
+            "source": "80421",
+            "target": "80422" 
+        },
+        { 
+            "source": "80422",
+            "target": "80423" 
+        },
+        { 
+            "source": "80423",
+            "target": "80424" 
+        },
+        { 
+            "source": "80424",
+            "target": "80425" 
+        },
+        { 
+            "source": "80425",
+            "target": "80426" 
+        },
+        { 
+            "source": "80426",
+            "target": "80427" 
+        } 
+    ],
+    "categories": [
+        {
+            "name": "Blue Line"
+        },
+        {
+            "name": "Expo Line"
+        },
+        {
+            "name": "Red Line"
+        },
+        {
+            "name": "Purple Line"
+        },
+        {
+            "name": "Green Line"
+        },
+        {
+            "name": "Gold Line"
+        }
+    ]
+}
+
+
+    var myChart = echarts.init(document.getElementById('main'), 'dark');
+    var option;
+    myChart.showLoading();
+
+    myChart.hideLoading();
+    option =
+    {
+      tooltip: {},
+      legend: [
+        {
+          data: graph.categories.map(function (a) {
+            return a.name;
+          })
+        }
+      ],
+      series: [
+        {
+          name: 'Les Miserables',
+          type: 'graph',
+          layout: 'none',
+          data: graph.nodes,
+          links: graph.links,
+          categories: graph.categories,
+          roam: true,
+          label: {
+            show: true,
+            position: 'right',
+            formatter: '{b}'
+          },
+          labelLayout: {
+            hideOverlap: true
+          },
+          scaleLimit: {
+            min: 0.4,
+            max: 2
+          },
+          lineStyle: {
+            color: 'source',
+            curveness: 0.3
+          }
+        }
+      ]
+    };
+    myChart.setOption(option);
+
+    option && myChart.setOption(option);
+  </script>
+
+</body>
+</html>

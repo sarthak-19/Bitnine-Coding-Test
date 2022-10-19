@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.13.0/maps/maps-web.min.js"></script>
+    <!-- Using Tomtom Maps Api CDN -->
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.13.0/maps/maps.css'>
+
+    <style>
+        body {
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-left: 5vw
+            margin-top: 2vw;
+            margin-bottom: 0;
+
+        }
+
+        .map-container {
+            margin-left: 1vw;
+            width: 90%;
+            /* border-radius: 25px; */
+            /* border: 2px solid grey; */
+        }
+
+        #map {
+            height: 50vw;
+            width: 100%;
+            /* border-radius: 25px; */
+        }
+
+        #black-marker {
+            background-image: url("./assets/black-pin.png");
+            background-size: cover;
+            width: 22px;
+            height: 28px;
+        }
+
+        #aqua-marker {
+            background-image: url("./assets/aqua-pin.png");
+            background-size: cover;
+            width: 22px;
+            height: 28px;
+        }
+
+        #blue-marker {
+            background-image: url("./assets/blue-pin.png");
+            background-size: cover;
+            width: 22px;
+            height: 28px;
+        }
+
+        #gold-marker {
+            background-image: url("./assets/gold-pin.png");
+            background-size: cover;
+            width: 22px;
+            height: 28px;
+        }
+
+        #red-marker {
+            background-image: url("./assets/red-pin.png");
+            background-size: cover;
+            width: 22px;
+            height: 28px;
+        }
+
+        #green-marker {
+            background-image: url("./assets/green-pin.png");
+            background-size: cover;
+            width: 22px;
+            height: 28px;
+        }
+
+        #purple-marker {
+            background-image: url("./assets/purple-pin.png");
+            width: 22px;
+            height: 28px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Los Angeles Subway Network</h1>
+    <br>
+    <div class="map-container">
+        <div id='map'></div>
+    </div>
+
+    <script>
+
+        var map;
+        const displayMap = (data) => {
+            map = tt.map({
+                key: 'tgTAOtAIf8p5pzH4zAfYDQaAx7yYK2QP', 
+                container: 'map',
+                center: [-118.22605115202344, 33.95196081691816],
+                zoom: 9.5
+            });
+
+            map.addControl(new tt.NavigationControl())
+
+            data.nodes.forEach(stObj => {
+                addMarker(stObj, data)
+            });
+        }
+
+        const addMarker = (stObj, data) => {
+            var line = data.categories[stObj.category].name.split(' ')[0].toLowerCase();
+            const ele = document.createElement('div')
+            if(line === "expo") line = "aqua"
+            ele.id = line+"-marker"
+
+            var popupOffsets = {
+                top: [0, 0],
+                bottom: [0, -18],
+                'bottom-right': [0, -70],
+                'bottom-left': [0, -70],
+                left: [25, -35],
+                right: [-25, -35]
+            }
+
+            new tt.Marker({ draggable: false, element: ele })
+                .setLngLat([stObj.x, stObj.y])
+                .setPopup(new tt.Popup({ offset: popupOffsets }).setHTML("<b>Station:</b> " + stObj.name + "<br><b>Line Color:</b> " + line.toUpperCase()))
+                .addTo(map)
+        }
+
+        const caller = () => {
+            var data = {
+                "nodes": [
+                    {
+                        "id": "80101",
+                        "name": "Downtown Long Beach Station",
+                        "SymbolSize": 15,
+                        "x": -118.19292099988019,
+                        "y": 33.76807099973904,
+                        "category": 0
+                    },
+                    {
+                        "id": "80102",
+                        "name": "Pacific Ave Station",
+                        "SymbolSize": 15,
+                        "x": -118.1936999994702,
+                        "y": 33.77225800005807,
+                        "category": 0
+                    },
+                    {
+                        "id": "80105",
+                        "name": "Anaheim Street Station",
+                        "SymbolSize": 15,
+                        "x": -118.18938400015178,
+                        "y": 33.781830000366064,
+                        "category": 0
+                    },
+                    {
+                        "id": "80106",
+                        "name": "Pacific Coast Hwy Station",
+                        "SymbolSize": 15,
+                        "x": -118.18938200009414,
+                        "y": 33.7890899999179,
+                        "category": 0
+                    },
+                    {
+                        "id": "80107",
+                        "name": "Willow Street Station",
+                        "SymbolSize": 15,
+                        "x": -118.18983399979538,
+                        "y": 33.8070790000511,
+                        "category": 0
+                    },
+                    {
+                        "id": "80108",
+                        "name": "Wardlow Station",
+                        "SymbolSize": 15,
+                        "x": -118.1960899998735,
+                        "y": 33.81986500042085,
+                        "category": 0
+                    },
+                    {
+                        "id": "80109",
+                        "name": "Del Amo Station",
+                        "SymbolSize": 15,
+                        "x": -118.21101700040077,
+                        "y": 33.84822200019087,
+                        "category": 0
+                    },
+                    {
+                        "id": "80110",
+                        "name": "Artesia Station",
+                        "SymbolSize": 15,
+                        "x": -118.22250300024177,
+                        "y": 33.87608200008813,
+                        "category": 0
+                    },
+                    {
+                        "id": "80111",
+                        "name": "Compton Station",
+                        "SymbolSize": 15,
+                        "x": -118.22424899999488,
+                        "y": 33.89749000016153,
+                        "category": 0
+                    },
+                    {
+                        "id": "80112",
+                        "name": "Willowbrook - Rosa Parks Station - Metro Blue Line",
+                        "SymbolSize": 15,
+                        "x": -118.23755500026044,
+                        "y": 33.92804799984574,
+                        "category": 0
+                    },
+                    {
+                        "id": "80113",
+                        "name": "103rd Street / Watts Towers  Station",
+                        "SymbolSize": 15,
+                        "x": -118.24315899972797,
+                        "y": 33.942220000322884,
+                        "category": 0
+                    },
+                    {
+                        "id": "80114",
+                        "name": "Firestone Station",
+                        "SymbolSize": 15,
+                        "x": -118.2432049999076,
+                        "y": 33.95961099981681,
+                        "category": 0
+                    },
+                    {
+                        "id": "80115",
+                        "name": "Florence Station",
+                        "SymbolSize": 15,
+                        "x": -118.24327099967796,
+                        "y": 33.97374000005275,
+                        "category": 0
+                    },
+                    {
+                        "id": "80116",
+                        "name": "Slauson Station",
+                        "SymbolSize": 15,
+                        "x": -118.24339800004967,
+                        "y": 33.98876000023379,
+                        "category": 0
+                    },
+                    {
+                        "id": "80117",
+                        "name": "Vernon Station",
+                        "SymbolSize": 15,
+                        "x": -118.24330300035814,
+                        "y": 34.00292000031266,
+                        "category": 0
+                    },
+                    {
+                        "id": "80118",
+                        "name": "Washington Station",
+                        "SymbolSize": 15,
+                        "x": -118.24308400001725,
+                        "y": 34.019649999824246,
+                        "category": 0
+                    },
+                    {
+                        "id": "80119",
+                        "name": "San Pedro Street Station",
+                        "SymbolSize": 15,
+                        "x": -118.2555050001109,
+                        "y": 34.026807000005206,
+                        "category": 0
+                    },
+                    {
+                        "id": "80120",
+                        "name": "Grand / LATTC Station",
+                        "SymbolSize": 15,
+                        "x": -118.26933299993601,
+                        "y": 34.03315500006921,
+                        "category": 0
+                    },
+                    {
+                        "id": "80121",
+                        "name": "Pico Station",
+                        "SymbolSize": 15,
+                        "x": -118.26611800020636,
+                        "y": 34.040735000325974,
+                        "category": 0
+                    },
+                    {
+                        "id": "80122",
+                        "name": "7th St / Metro Center Station - Metro Blue & Expo Lines",
+                        "SymbolSize": 15,
+                        "x": -118.25882200042645,
+                        "y": 34.04860999987021,
+                        "category": 0
+                    },
+                    {
+                        "id": "80123",
+                        "name": "LATTC / Ortho Institute Station",
+                        "SymbolSize": 15,
+                        "x": -118.27360299981005,
+                        "y": 34.02911200034815,
+                        "category": 1
+                    },
+                    {
+                        "id": "80124",
+                        "name": "Jefferson / USC Station",
+                        "SymbolSize": 15,
+                        "x": -118.27811800001174,
+                        "y": 34.02212300041644,
+                        "category": 1
+                    },
+                    {
+                        "id": "80125",
+                        "name": "Expo Park / USC Station",
+                        "SymbolSize": 15,
+                        "x": -118.28573400004424,
+                        "y": 34.01822700035439,
+                        "category": 1
+                    },
+                    {
+                        "id": "80126",
+                        "name": "Expo / Vermont Station",
+                        "SymbolSize": 15,
+                        "x": -118.29154000016672,
+                        "y": 34.018245000352685,
+                        "category": 1
+                    },
+                    {
+                        "id": "80127",
+                        "name": "Expo / Western Station",
+                        "SymbolSize": 15,
+                        "x": -118.3089099999928,
+                        "y": 34.01833099993332,
+                        "category": 1
+                    },
+                    {
+                        "id": "80128",
+                        "name": "Expo / Crenshaw Station",
+                        "SymbolSize": 15,
+                        "x": -118.33507800022828,
+                        "y": 34.0225259998206,
+                        "category": 1
+                    },
+                    {
+                        "id": "80129",
+                        "name": "Farmdale Station",
+                        "SymbolSize": 15,
+                        "x": -118.34609500019637,
+                        "y": 34.02398100003797,
+                        "category": 1
+                    },
+                    {
+                        "id": "80130",
+                        "name": "Expo / La Brea Station",
+                        "SymbolSize": 15,
+                        "x": -118.35515900044052,
+                        "y": 34.02480300035486,
+                        "category": 1
+                    },
+                    {
+                        "id": "80131",
+                        "name": "La Cienega / Jefferson Station",
+                        "SymbolSize": 15,
+                        "x": -118.37211999973364,
+                        "y": 34.02635500011092,
+                        "category": 1
+                    },
+                    {
+                        "id": "80132",
+                        "name": "Culver City Station",
+                        "SymbolSize": 15,
+                        "x": -118.38898599990145,
+                        "y": 34.02789599996983,
+                        "category": 1
+                    },
+                    {
+                        "id": "80153",
+                        "name": "1st Street Station",
+                        "SymbolSize": 15,
+                        "x": -118.18936200041134,
+                        "y": 33.76874000037536,
+                        "category": 0
+                    },
+                    {
+                        "id": "80154",
+                        "name": "5th Street Station",
+                        "SymbolSize": 15,
+                        "x": -118.18941200035138,
+                        "y": 33.7735979995706,
+                        "category": 0
+                    },
+                    {
+                        "id": "80201",
+                        "name": "North Hollywood Station",
+                        "SymbolSize": 15,
+                        "x": -118.37680800021687,
+                        "y": 34.168503999792364,
+                        "category": 2
+                    },
+                    {
+                        "id": "80202",
+                        "name": "Universal / Studio City Station",
+                        "SymbolSize": 15,
+                        "x": -118.36269899982237,
+                        "y": 34.14000200029585,
+                        "category": 2
+                    },
+                    {
+                        "id": "80203",
+                        "name": "Hollywood / Highland Station",
+                        "SymbolSize": 15,
+                        "x": -118.33854899982131,
+                        "y": 34.10154699972406,
+                        "category": 2
+                    },
+                    {
+                        "id": "80204",
+                        "name": "Hollywood / Vine Station",
+                        "SymbolSize": 15,
+                        "x": -118.32518000013556,
+                        "y": 34.101630000054115,
+                        "category": 2
+                    },
+                    {
+                        "id": "80205",
+                        "name": "Hollywood / Western Station",
+                        "SymbolSize": 15,
+                        "x": -118.30811700023226,
+                        "y": 34.10173700013553,
+                        "category": 2
+                    },
+                    {
+                        "id": "80206",
+                        "name": "Vermont / Sunset Station",
+                        "SymbolSize": 15,
+                        "x": -118.29175599997755,
+                        "y": 34.09770800020225,
+                        "category": 2
+                    },
+                    {
+                        "id": "80207",
+                        "name": "Vermont / Santa Monica Station",
+                        "SymbolSize": 15,
+                        "x": -118.29173000041749,
+                        "y": 34.08990999977402,
+                        "category": 2
+                    },
+                    {
+                        "id": "80208",
+                        "name": "Vermont / Beverly Station",
+                        "SymbolSize": 15,
+                        "x": -118.29168600028255,
+                        "y": 34.076525999971274,
+                        "category": 2
+                    },
+                    {
+                        "id": "80209",
+                        "name": "Wilshire / Vermont Station",
+                        "SymbolSize": 15,
+                        "x": -118.29008199954043,
+                        "y": 34.06270100002402,
+                        "category": 2
+                    },
+                    {
+                        "id": "80210",
+                        "name": "Westlake / MacArthur Park Station",
+                        "SymbolSize": 15,
+                        "x": -118.27487900027457,
+                        "y": 34.05636799972788,
+                        "category": 2
+                    },
+                    {
+                        "id": "80211",
+                        "name": "7th St / Metro Center Station - Metro Red & Purple Lines",
+                        "SymbolSize": 15,
+                        "x": -118.25868200001985,
+                        "y": 34.048634000179824,
+                        "category": 2
+                    },
+                    {
+                        "id": "80212",
+                        "name": "Pershing Square Station",
+                        "SymbolSize": 15,
+                        "x": -118.25125899962754,
+                        "y": 34.04931600034301,
+                        "category": 2
+                    },
+                    {
+                        "id": "80213",
+                        "name": "Civic Center / Grand Park Station",
+                        "SymbolSize": 15,
+                        "x": -118.24605700043661,
+                        "y": 34.0549000003663,
+                        "category": 2
+                    },
+                    {
+                        "id": "80214",
+                        "name": "Union Station - Metro Red & Purple Lines",
+                        "SymbolSize": 15,
+                        "x": -118.23424900018837,
+                        "y": 34.056196999566886,
+                        "category": 2
+                    },
+                    {
+                        "id": "80215",
+                        "name": "Wilshire / Normandie Station",
+                        "SymbolSize": 15,
+                        "x": -118.30145799996596,
+                        "y": 34.06175300040925,
+                        "category": 3
+                    },
+                    {
+                        "id": "80216",
+                        "name": "Wilshire / Western Station",
+                        "SymbolSize": 15,
+                        "x": -118.3087560005219,
+                        "y": 34.0616889998001,
+                        "category": 3
+                    },
+                    {
+                        "id": "80301",
+                        "name": "Redondo Beach Station",
+                        "SymbolSize": 15,
+                        "x": -118.36919600020805,
+                        "y": 33.89463999991437,
+                        "category": 4
+                    },
+                    {
+                        "id": "80302",
+                        "name": "Douglas Station",
+                        "SymbolSize": 15,
+                        "x": -118.38311300036254,
+                        "y": 33.9052989998203,
+                        "category": 4
+                    },
+                    {
+                        "id": "80303",
+                        "name": "El Segundo Station",
+                        "SymbolSize": 15,
+                        "x": -118.38653899948176,
+                        "y": 33.916062999896944,
+                        "category": 4
+                    },
+                    {
+                        "id": "80304",
+                        "name": "Mariposa Station",
+                        "SymbolSize": 15,
+                        "x": -118.38757200040996,
+                        "y": 33.923199999610524,
+                        "category": 4
+                    },
+                    {
+                        "id": "80305",
+                        "name": "Aviation / LAX Station",
+                        "SymbolSize": 15,
+                        "x": -118.37713399951298,
+                        "y": 33.92962099967193,
+                        "category": 4
+                    },
+                    {
+                        "id": "80306",
+                        "name": "Hawthorne / Lennox Station",
+                        "SymbolSize": 15,
+                        "x": -118.35160199967572,
+                        "y": 33.93340799977214,
+                        "category": 4
+                    },
+                    {
+                        "id": "80307",
+                        "name": "Crenshaw Station",
+                        "SymbolSize": 15,
+                        "x": -118.32654999957477,
+                        "y": 33.92520099956265,
+                        "category": 4
+                    },
+                    {
+                        "id": "80308",
+                        "name": "Vermont / Athens Station",
+                        "SymbolSize": 15,
+                        "x": -118.29173299995566,
+                        "y": 33.92868300021043,
+                        "category": 4
+                    },
+                    {
+                        "id": "80309",
+                        "name": "Harbor Freeway Station",
+                        "SymbolSize": 15,
+                        "x": -118.28110000026243,
+                        "y": 33.92871400026039,
+                        "category": 4
+                    },
+                    {
+                        "id": "80310",
+                        "name": "Avalon Station",
+                        "SymbolSize": 15,
+                        "x": -118.26521699947209,
+                        "y": 33.92746499978556,
+                        "category": 4
+                    },
+                    {
+                        "id": "80311",
+                        "name": "Willowbrook - Rosa Parks Station - Metro Green Line",
+                        "SymbolSize": 15,
+                        "x": -118.23805199981469,
+                        "y": 33.92825800031017,
+                        "category": 4
+                    },
+                    {
+                        "id": "80312",
+                        "name": "Long Beach Blvd Station",
+                        "SymbolSize": 15,
+                        "x": -118.20994500025516,
+                        "y": 33.92487999958962,
+                        "category": 4
+                    },
+                    {
+                        "id": "80313",
+                        "name": "Lakewood Blvd Station",
+                        "SymbolSize": 15,
+                        "x": -118.14060000053131,
+                        "y": 33.913069999875226,
+                        "category": 4
+                    },
+                    {
+                        "id": "80314",
+                        "name": "Norwalk Station",
+                        "SymbolSize": 15,
+                        "x": -118.10471700004186,
+                        "y": 33.91403300021094,
+                        "category": 4
+                    },
+                    {
+                        "id": "80401",
+                        "name": "Atlantic Station",
+                        "SymbolSize": 15,
+                        "x": -118.15446899995854,
+                        "y": 34.033398000239195,
+                        "category": 5
+                    },
+                    {
+                        "id": "80402",
+                        "name": "East LA Civic Center Station",
+                        "SymbolSize": 15,
+                        "x": -118.161205999753,
+                        "y": 34.03336399996033,
+                        "category": 5
+                    },
+                    {
+                        "id": "80403",
+                        "name": "Maravilla Station",
+                        "SymbolSize": 15,
+                        "x": -118.16814000015704,
+                        "y": 34.03331900002552,
+                        "category": 5
+                    },
+                    {
+                        "id": "80404",
+                        "name": "Indiana Station",
+                        "SymbolSize": 15,
+                        "x": -118.19218200022898,
+                        "y": 34.034300000300235,
+                        "category": 5
+                    },
+                    {
+                        "id": "80405",
+                        "name": "Soto Station",
+                        "SymbolSize": 15,
+                        "x": -118.21006099982142,
+                        "y": 34.04374699968801,
+                        "category": 5
+                    },
+                    {
+                        "id": "80406",
+                        "name": "Mariachi Plaza / Boyle Heights Station",
+                        "SymbolSize": 15,
+                        "x": -118.21964800016036,
+                        "y": 34.04721500003432,
+                        "category": 5
+                    },
+                    {
+                        "id": "80407",
+                        "name": "Pico / Aliso Station",
+                        "SymbolSize": 15,
+                        "x": -118.22594000038869,
+                        "y": 34.0476339997117,
+                        "category": 5
+                    },
+                    {
+                        "id": "80408",
+                        "name": "Little Tokyo / Arts District Station",
+                        "SymbolSize": 15,
+                        "x": -118.23790100026723,
+                        "y": 34.05010000008611,
+                        "category": 5
+                    },
+                    {
+                        "id": "80409",
+                        "name": "Union Station - Metro Gold Line",
+                        "SymbolSize": 15,
+                        "x": -118.23475899954124,
+                        "y": 34.056060999752866,
+                        "category": 5
+                    },
+                    {
+                        "id": "80410",
+                        "name": "Chinatown Station",
+                        "SymbolSize": 15,
+                        "x": -118.23583999967346,
+                        "y": 34.063860999711736,
+                        "category": 5
+                    },
+                    {
+                        "id": "80411",
+                        "name": "Lincoln Heights / Cypress Park Station",
+                        "SymbolSize": 15,
+                        "x": -118.22042899987187,
+                        "y": 34.08094899981074,
+                        "category": 5
+                    },
+                    {
+                        "id": "80412",
+                        "name": "Heritage Square / Arroyo Station",
+                        "SymbolSize": 15,
+                        "x": -118.21321299991507,
+                        "y": 34.08722700016255,
+                        "category": 5
+                    },
+                    {
+                        "id": "80413",
+                        "name": "Southwest Museum Station",
+                        "SymbolSize": 15,
+                        "x": -118.20671199989988,
+                        "y": 34.09824299960079,
+                        "category": 5
+                    },
+                    {
+                        "id": "80414",
+                        "name": "Highland Park Station",
+                        "SymbolSize": 15,
+                        "x": -118.19260600025261,
+                        "y": 34.11117900018589,
+                        "category": 5
+                    },
+                    {
+                        "id": "80415",
+                        "name": "South Pasadena Station",
+                        "SymbolSize": 15,
+                        "x": -118.15788600023126,
+                        "y": 34.11518600012085,
+                        "category": 5
+                    },
+                    {
+                        "id": "80416",
+                        "name": "Fillmore Station",
+                        "SymbolSize": 15,
+                        "x": -118.14812599988883,
+                        "y": 34.133520999572184,
+                        "category": 5
+                    },
+                    {
+                        "id": "80417",
+                        "name": "Del Mar Station",
+                        "SymbolSize": 15,
+                        "x": -118.14821399976204,
+                        "y": 34.141910000383575,
+                        "category": 5
+                    },
+                    {
+                        "id": "80418",
+                        "name": "Memorial Park Station",
+                        "SymbolSize": 15,
+                        "x": -118.14751200027115,
+                        "y": 34.148355999935816,
+                        "category": 5
+                    },
+                    {
+                        "id": "80419",
+                        "name": "Lake Station",
+                        "SymbolSize": 15,
+                        "x": -118.13138999946663,
+                        "y": 34.15180599983858,
+                        "category": 5
+                    },
+                    {
+                        "id": "80420",
+                        "name": "Allen Station",
+                        "SymbolSize": 15,
+                        "x": -118.11434799946551,
+                        "y": 34.152417000414914,
+                        "category": 5
+                    },
+                    {
+                        "id": "80421",
+                        "name": "Sierra Madre Villa Station",
+                        "SymbolSize": 15,
+                        "x": -118.08121199954985,
+                        "y": 34.147752000256695,
+                        "category": 5
+                    },
+                    {
+                        "id": "80133",
+                        "name": "Palms Station",
+                        "SymbolSize": 15,
+                        "x": -118.40425500028769,
+                        "y": 34.02932299999053,
+                        "category": 1
+                    },
+                    {
+                        "id": "80134",
+                        "name": "Westwood / Rancho Park Station",
+                        "SymbolSize": 15,
+                        "x": -118.42457599982195,
+                        "y": 34.0368159998897,
+                        "category": 1
+                    },
+                    {
+                        "id": "80135",
+                        "name": "Expo / Sepulveda Station",
+                        "SymbolSize": 15,
+                        "x": -118.43423399951705,
+                        "y": 34.03540799990164,
+                        "category": 1
+                    },
+                    {
+                        "id": "80136",
+                        "name": "Expo / Bundy Station",
+                        "SymbolSize": 15,
+                        "x": -118.45289600037239,
+                        "y": 34.031704999614426,
+                        "category": 1
+                    },
+                    {
+                        "id": "80137",
+                        "name": "26th St / Bergamot Station",
+                        "SymbolSize": 15,
+                        "x": -118.4691199995661,
+                        "y": 34.02799499962183,
+                        "category": 1
+                    },
+                    {
+                        "id": "80138",
+                        "name": "17th St / SMC Station",
+                        "SymbolSize": 15,
+                        "x": -118.48037200020526,
+                        "y": 34.023154999680855,
+                        "category": 1
+                    },
+                    {
+                        "id": "80139",
+                        "name": "Downtown Santa Monica Station",
+                        "SymbolSize": 15,
+                        "x": -118.49138399953792,
+                        "y": 34.01400999976604,
+                        "category": 1
+                    },
+                    {
+                        "id": "80422",
+                        "name": "Arcadia Station",
+                        "SymbolSize": 15,
+                        "x": -118.02919900021266,
+                        "y": 34.142859999768774,
+                        "category": 5
+                    },
+                    {
+                        "id": "80423",
+                        "name": "Monrovia Station",
+                        "SymbolSize": 15,
+                        "x": -118.00347299952888,
+                        "y": 34.13315499963274,
+                        "category": 5
+                    },
+                    {
+                        "id": "80424",
+                        "name": "Duarte / City of Hope Station",
+                        "SymbolSize": 15,
+                        "x": -117.96768000026172,
+                        "y": 34.13251800001596,
+                        "category": 5
+                    },
+                    {
+                        "id": "80425",
+                        "name": "Irwindale Station",
+                        "SymbolSize": 15,
+                        "x": -117.93250599951757,
+                        "y": 34.129048000333256,
+                        "category": 5
+                    },
+                    {
+                        "id": "80426",
+                        "name": "Azusa Downtown Station",
+                        "SymbolSize": 15,
+                        "x": -117.90663100000828,
+                        "y": 34.13586300002205,
+                        "category": 5
+                    },
+                    {
+                        "id": "80427",
+                        "name": "APU / Citrus College Station",
+                        "SymbolSize": 15,
+                        "x": -117.89163599946599,
+                        "y": 34.13681399975243,
+                        "category": 5
+                    }
+                ],
+                "links": [
+                    {
+                        "source": "80122",
+                        "target": "80121"
+                    },
+                    {
+                        "source": "80121",
+                        "target": "80120"
+                    },
+                    {
+                        "source": "80120",
+                        "target": "80119"
+                    },
+                    {
+                        "source": "80119",
+                        "target": "80118"
+                    },
+                    {
+                        "source": "80118",
+                        "target": "80117"
+                    },
+                    {
+                        "source": "80117",
+                        "target": "80116"
+                    },
+                    {
+                        "source": "80116",
+                        "target": "80115"
+                    },
+                    {
+                        "source": "80115",
+                        "target": "80114"
+                    },
+                    {
+                        "source": "80114",
+                        "target": "80113"
+                    },
+                    {
+                        "source": "80113",
+                        "target": "80112"
+                    },
+                    {
+                        "source": "80112",
+                        "target": "80111"
+                    },
+                    {
+                        "source": "80111",
+                        "target": "80110"
+                    },
+                    {
+                        "source": "80110",
+                        "target": "80109"
+                    },
+                    {
+                        "source": "80109",
+                        "target": "80108"
+                    },
+                    {
+                        "source": "80108",
+                        "target": "80107"
+                    },
+                    {
+                        "source": "80107",
+                        "target": "80106"
+                    },
+                    {
+                        "source": "80106",
+                        "target": "80105"
+                    },
+                    {
+                        "source": "80105",
+                        "target": "80154"
+                    },
+                    {
+                        "source": "80154",
+                        "target": "80153"
+                    },
+                    {
+                        "source": "80153",
+                        "target": "80101"
+                    },
+                    {
+                        "source": "80122",
+                        "target": "80121"
+                    },
+                    {
+                        "source": "80121",
+                        "target": "80123"
+                    },
+                    {
+                        "source": "80123",
+                        "target": "80124"
+                    },
+                    {
+                        "source": "80124",
+                        "target": "80125"
+                    },
+                    {
+                        "source": "80125",
+                        "target": "80126"
+                    },
+                    {
+                        "source": "80126",
+                        "target": "80127"
+                    },
+                    {
+                        "source": "80127",
+                        "target": "80128"
+                    },
+                    {
+                        "source": "80128",
+                        "target": "80129"
+                    },
+                    {
+                        "source": "80129",
+                        "target": "80130"
+                    },
+                    {
+                        "source": "80130",
+                        "target": "80131"
+                    },
+                    {
+                        "source": "80131",
+                        "target": "80132"
+                    },
+                    {
+                        "source": "80132",
+                        "target": "80133"
+                    },
+                    {
+                        "source": "80133",
+                        "target": "80134"
+                    },
+                    {
+                        "source": "80134",
+                        "target": "80135"
+                    },
+                    {
+                        "source": "80135",
+                        "target": "80136"
+                    },
+                    {
+                        "source": "80136",
+                        "target": "80137"
+                    },
+                    {
+                        "source": "80137",
+                        "target": "80138"
+                    },
+                    {
+                        "source": "80138",
+                        "target": "80139"
+                    },
+                    {
+                        "source": "80201",
+                        "target": "80202"
+                    },
+                    {
+                        "source": "80202",
+                        "target": "80203"
+                    },
+                    {
+                        "source": "80203",
+                        "target": "80204"
+                    },
+                    {
+                        "source": "80204",
+                        "target": "80205"
+                    },
+                    {
+                        "source": "80205",
+                        "target": "80206"
+                    },
+                    {
+                        "source": "80206",
+                        "target": "80207"
+                    },
+                    {
+                        "source": "80207",
+                        "target": "80208"
+                    },
+                    {
+                        "source": "80208",
+                        "target": "80209"
+                    },
+                    {
+                        "source": "80209",
+                        "target": "80210"
+                    },
+                    {
+                        "source": "80210",
+                        "target": "80211"
+                    },
+                    {
+                        "source": "80211",
+                        "target": "80212"
+                    },
+                    {
+                        "source": "80212",
+                        "target": "80213"
+                    },
+                    {
+                        "source": "80213",
+                        "target": "80214"
+                    },
+                    {
+                        "source": "80216",
+                        "target": "80215"
+                    },
+                    {
+                        "source": "80215",
+                        "target": "80209"
+                    },
+                    {
+                        "source": "80209",
+                        "target": "80210"
+                    },
+                    {
+                        "source": "80210",
+                        "target": "80211"
+                    },
+                    {
+                        "source": "80211",
+                        "target": "80212"
+                    },
+                    {
+                        "source": "80212",
+                        "target": "80213"
+                    },
+                    {
+                        "source": "80213",
+                        "target": "80214"
+                    },
+                    {
+                        "source": "80301",
+                        "target": "80302"
+                    },
+                    {
+                        "source": "80302",
+                        "target": "80303"
+                    },
+                    {
+                        "source": "80303",
+                        "target": "80304"
+                    },
+                    {
+                        "source": "80304",
+                        "target": "80305"
+                    },
+                    {
+                        "source": "80305",
+                        "target": "80306"
+                    },
+                    {
+                        "source": "80306",
+                        "target": "80307"
+                    },
+                    {
+                        "source": "80307",
+                        "target": "80308"
+                    },
+                    {
+                        "source": "80308",
+                        "target": "80309"
+                    },
+                    {
+                        "source": "80309",
+                        "target": "80310"
+                    },
+                    {
+                        "source": "80310",
+                        "target": "80311"
+                    },
+                    {
+                        "source": "80311",
+                        "target": "80312"
+                    },
+                    {
+                        "source": "80312",
+                        "target": "80313"
+                    },
+                    {
+                        "source": "80313",
+                        "target": "80314"
+                    },
+                    {
+                        "source": "80409",
+                        "target": "80410"
+                    },
+                    {
+                        "source": "80410",
+                        "target": "80411"
+                    },
+                    {
+                        "source": "80411",
+                        "target": "80412"
+                    },
+                    {
+                        "source": "80412",
+                        "target": "80413"
+                    },
+                    {
+                        "source": "80413",
+                        "target": "80414"
+                    },
+                    {
+                        "source": "80414",
+                        "target": "80415"
+                    },
+                    {
+                        "source": "80415",
+                        "target": "80416"
+                    },
+                    {
+                        "source": "80416",
+                        "target": "80417"
+                    },
+                    {
+                        "source": "80417",
+                        "target": "80418"
+                    },
+                    {
+                        "source": "80418",
+                        "target": "80419"
+                    },
+                    {
+                        "source": "80419",
+                        "target": "80420"
+                    },
+                    {
+                        "source": "80420",
+                        "target": "80421"
+                    },
+                    {
+                        "source": "80421",
+                        "target": "80422"
+                    },
+                    {
+                        "source": "80422",
+                        "target": "80423"
+                    },
+                    {
+                        "source": "80423",
+                        "target": "80424"
+                    },
+                    {
+                        "source": "80424",
+                        "target": "80425"
+                    },
+                    {
+                        "source": "80425",
+                        "target": "80426"
+                    },
+                    {
+                        "source": "80426",
+                        "target": "80427"
+                    }
+                ],
+                "categories": [
+                    {
+                        "name": "Blue Line"
+                    },
+                    {
+                        "name": "Expo Line"
+                    },
+                    {
+                        "name": "Red Line"
+                    },
+                    {
+                        "name": "Purple Line"
+                    },
+                    {
+                        "name": "Green Line"
+                    },
+                    {
+                        "name": "Gold Line"
+                    }
+                ]
+            }
+
+            displayMap(data)
+        }
+        caller()
+
+    </script>
+</body>
+
+</html>

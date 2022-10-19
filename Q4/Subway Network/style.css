@@ -1,0 +1,31 @@
+h1
+{
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color: #791d1d;
+    text-align: center;
+    margin: 20px;
+    padding: 0px;
+    color: rgb(251, 4, 4);
+    /* background-color: rgb(35, 35, 35); */
+    text-shadow: rgb(229, 213, 213) 0px 0px 5px, rgb(255, 255, 255) 0px 0px 10px, rgb(255, 255, 255) 0px 0px 15px, rgb(73, 255, 24) 0px 0px 20px, rgb(73, 255, 24) 0px 0px 30px, rgb(73, 255, 24) 0px 0px 40px, rgb(73, 255, 24) 0px 0px 55px, rgb(73, 255, 24) 0px 0px 75px;
+    --darkreader-inline-bgcolor: #191c1c;
+    --darkreader-inline-color: #dcdbd8;
+}
+body
+{
+    /* background-color: #f4c2c2aa; */
+    background-color:rgba(255, 253, 253, 0.848);
+    margin: 0px;
+    padding: 0px;
+}
+#main{
+    /* background-color: aqua; */
+    margin: 50px auto;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 3px groove #38A0B1;
+    width: 80%;
+    height: 780px;  
+}
